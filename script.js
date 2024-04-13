@@ -1,5 +1,4 @@
 let cryptoChart;
-
 function fetchData() {
     const cryptoName = document.getElementById('cryptoInput').value.trim().toLowerCase();
 
@@ -21,7 +20,6 @@ function fetchData() {
             alert('Error fetching data. Please try again later.');
         });
 }
-
 
 function displayPrice(price) {
     const priceDisplay = document.getElementById('priceDisplay');
@@ -49,11 +47,15 @@ function displayChart(prices) {
             scales: {
                 xAxes: [{
                     type: 'time',
+                    distribution: 'linear', // Ensure linear distribution of data points
                     time: {
-                        unit: 'day'
+                        unit: 'day',
+                        tooltipFormat: 'MMM DD, YYYY', // Format for tooltips
                     },
                     ticks: {
-                        source: 'auto'
+                        source: 'auto',
+                        autoSkip: true, // Automatically skip labels if they overlap
+                        maxTicksLimit: 10, // Limit the number of visible ticks
                     }
                 }],
                 yAxes: [{
