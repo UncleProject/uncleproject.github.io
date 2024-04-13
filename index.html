@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crypto Price Tracker</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
         <h1>Crypto Price Tracker</h1>
         <input type="text" id="cryptoInput" placeholder="Enter cryptocurrency name">
-        <button onclick="fetchPrice()">Track Price</button>
+        <button onclick="fetchData()">Track Price</button>
         <div id="priceDisplay"></div>
+        <canvas id="cryptoChart" width="800" height="400"></canvas>
     </div>
 
     <script src="script.js"></script>
