@@ -11,6 +11,7 @@ function fetchData() {
     fetch(`https://api.coingecko.com/api/v3/coins/${cryptoName}/market_chart?vs_currency=usd&days=7&interval=daily`)
         .then(response => response.json())
         .then(data => {
+            console.log(data); // Log the data received from the API
             const prices = data.prices.map(price => ({x: new Date(price[0]), y: price[1]}));
             displayPrice(prices[prices.length - 1].y);
             displayChart(prices);
@@ -20,6 +21,7 @@ function fetchData() {
             alert('Error fetching data. Please try again later.');
         });
 }
+
 
 function displayPrice(price) {
     const priceDisplay = document.getElementById('priceDisplay');
